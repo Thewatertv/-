@@ -1,0 +1,207 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>OOO"WATER GAMES"</title>
+<meta name="keywords" content="" >
+<meta name="description" content="" >
+<link href="css/общие стили.css" rel="stylesheet" type="text/css" >
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/showhide.js"></script>
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script>
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" >
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+</script>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+var text = 'Я добавил JS и PHP';
+var gap = 18;
+
+ns4 = (navigator.appName.indexOf("Netscape")>=0 && document.layers)? true : false;
+ie4 = (document.all && !document.getElementById)? true : false;
+ie5 = (document.all && document.getElementById)? true : false;
+ns6 = (document.getElementById && navigator.appName.indexOf("Netscape")>=0 )?
+        true: false;
+var the_text = new Array();
+var text = text.split('');
+var xx = 0;
+var yy = -999;
+var txt = '';
+
+for(i=1;i<=text.length;i++){
+txt+=(ns4)? '<layer name="text' + i + '" top="-100" left="0" width="' + gap +
+    '" height="1">' : '<span id="text' + i +
+    '" style="position:absolute; top:-100px; left:0px; height:1px; width:' +
+    gap + '; visibility:visible;">';
+txt+='<font color="red"><b>' + text[i-1] + '</b></font>';
+txt+=(ns4)? '</layer>' : '</span>';
+}
+document.write(txt);
+
+function move_letter(letter,left,top){
+if(ns4)letter.moveTo(left,top);
+else{
+letter.style.left=left + 'px';
+letter.style.top=top + 'px';
+}
+}
+
+function flying_text(evt){
+xx=15+((ie4||ie5)?event.clientX+document.body.scrollLeft:evt.pageX);
+yy=10+((ie4||ie5)?event.clientY+document.body.scrollTop:evt.pageY);
+}
+
+function what_left(id){
+if(ns4)return id.left;
+else return parseInt(id.style.left);
+}
+
+function what_top(id){
+if(ns4)return id.top;
+else return parseInt(id.style.top);
+}
+
+function window_width(){
+if(ie4||ie5)return document.body.clientWidth+document.body.scrollLeft;
+else return window.innerWidth+pageXOffset;
+}
+
+function move_string(){
+for(n=text.length;n>1;n=n-1){
+if(what_left(the_text[n-1])+gap*2>=window_width()){
+move_letter(the_text[n-1],0,-999);
+move_letter(the_text[n],0,-999);
+}
+else move_letter(the_text[n],what_left(the_text[n-1])+gap,what_top(the_text[n-1]));
+}
+move_letter(the_text[1],xx,yy);
+}
+
+window.onload=function(){
+for(n=1;n<=text.length;n++) the_text[n]= (ns4)?document.layers['text' + n]:
+    (ie4)?document.all['text'+n]:document.getElementById('text'+n);
+if(ns4)document.captureEvents(Event.MOUSEMOVE);
+document.onmousemove=flying_text;
+setInterval('move_string()', 25);
+}
+</script>
+
+<script type="text/javascript">
+
+
+</script>
+
+</head>
+
+<body id="subpage">
+
+<div id="templatemo_header_wrapper">
+	<div id="site_title"><h1><a href="Главная страница.html">OOO"WATER GAMES"</a></h1></div>
+     <div id="templatemo_menu" class="ddsmoothmenu">
+			 <ul>
+						 <li><a href="Главная страница.html" >Home</a></li>
+						 <li><a href="Аксессуары.html" >Аксессуары</a></li>
+						 <li><a href="Фото.html" >Фото</a></li>
+							 <li><a href="О нас.html" >О нас</a></li>
+							 <li><a href="Контакты.html" >Контакты</a></li>
+							  <li><a href="В наличии.html"class="selected">В наличии</a></li>
+							 <li ><a href="Работа.html" ><p style="color:red">Работа</p></a></li>
+
+
+        </ul>
+        <br style="clear: left" />
+    </div>
+    <div class="cleaner"></div>
+</div>
+
+
+
+<div id="templatemo_mane">
+    <div id="leftmane" align="center"> <h2>BMW i8</h2>
+	<img src="images\В продаже\01.jpg" >
+	<a href="Характеристики.html"><div>Характеристики</div></a>
+	<div>Цена:1250000 руб.</div>
+	<div><input type="button" class="button4" value="Купить"></div></div>
+
+	<div id="redemenu " align="center"><h2>Tesla Model X</h2>
+	<img src="images\В продаже\02.jpg" >
+	<div>Цена:42300000 руб.</div>
+		<div><input type="button" class="button4" value="Купить"></div></div>
+		    <div class="cleaner"></div>
+	<div id="leftmane" align="center"><h2>Hyundai Ioniq</h2>
+	<img src="images\В продаже\03.jpg" >
+	<div>Цена:2350000 руб.</div>
+		<div><input type="button" class="button4" value="Купить"></div></div>
+
+	<div id="redemenu " align="center"><h2>Youxia X</h2>
+	<img src="images\В продаже\04.jpg" >
+	<div>Цена:13999999 руб.</div>
+		<div><input type="button" class="button4" value="Купить"></div></div>
+		   <div class="cleaner"></div>
+	<div id="leftmane" align="center"><h2> BMW i3</h2>
+	<img src="images\В продаже\05.jpg" height="210px" width="420px">
+	<div>Цена:18000000 руб.</div>
+		<div><input type="button" class="button4" value="Купить"></div></div>
+
+	<div id="redemenu " align="center"><h2>Model 3 </h2>
+	<img src="images\В продаже\06.jpg" >
+	<div>Цена:47000000 руб.</div>
+		<div><input type="button" class="button4" value="Купить"></div></div>
+
+
+
+    <div class="cleaner"></div>
+</div>
+
+<div id="templatemo_bottom_wrapper">
+    <div id="templatemo_bottom">
+    	<div class="col one_third">
+        	<h4><span></span>Наши партнеры</h4>
+            <div class="bottom_box">
+                <ul class="footer_list">
+                    <li><a href="https://www.renault.ru">Renault</a></li>
+                    <li><a href="http://tesla-automobile.ru">Tesla</a></li>
+                    <li><a href="http://www.bmw.ru/ru/index.html">BMW</a></li>
+                    <li><a href="http://lotuscars.webcars.ru">Lotus</a></li>
+                    <li><a href="https://www.nissan.ru">Nissan</a></li>
+                </ul>
+			</div>
+        </div>
+        <div class="col one_third">
+        	<h4><span></span>Создатели</h4>
+            <div class="bottom_box">
+                <ul class="twitter_post">
+                    <li>Alexader Cergeevig Dubov</li>
+                    <li>Mr. Jony Kuper</li>
+                </ul>
+			</div>
+        </div>
+        <div class="col one_third no_margin_right">
+        	<h4><span></span>Мы в соц сетях</h4>
+            <div class="bottom_box">
+
+                <div class="footer_social_button">
+                    <a href="https://ru-ru.facebook.com"><img src="images/facebook.png" title="facebook" alt="facebook" ></a>
+                    <a href="https://twitter.com"><img src="images/twitter.png" title="twitter" alt="twitter" ></a>
+                    <a href="https://www.youtube.com/feed/subscriptions"><img src="images/youtube.png" title="youtube" alt="youtube" ></a>
+
+                </div>
+            </div>
+        </div>
+
+    	<div class="cleaner"></div>
+    </div>
+</div>
+
+<div id="templatemo_footer_wrapper">
+    <div id="templatemo_footer">
+    	Copyright © 2019 OOO"WATER GAMES"
+    </div>
+</div>
+
+
+</body>
+</html>

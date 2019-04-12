@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html >
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>OOO"WATER GAMES"</title>
+<meta name="keywords" content="" >
+<meta name="description" content="" >
+<link href="css/общие стили.css" rel="stylesheet" type="text/css" >
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/showhide.js"></script>
+<script type="text/JavaScript" src="js/jquery.mousewheel.js"></script>
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" >
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+
+</script>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script type="text/javascript">
+var text = 'Я добавил JS и PHP';
+var gap = 18;
+
+ns4 = (navigator.appName.indexOf("Netscape")>=0 && document.layers)? true : false;
+ie4 = (document.all && !document.getElementById)? true : false;
+ie5 = (document.all && document.getElementById)? true : false;
+ns6 = (document.getElementById && navigator.appName.indexOf("Netscape")>=0 )?
+        true: false;
+var the_text = new Array();
+var text = text.split('');
+var xx = 0;
+var yy = -999;
+var txt = '';
+
+for(i=1;i<=text.length;i++){
+txt+=(ns4)? '<layer name="text' + i + '" top="-100" left="0" width="' + gap +
+    '" height="1">' : '<span id="text' + i +
+    '" style="position:absolute; top:-100px; left:0px; height:1px; width:' +
+    gap + '; visibility:visible;">';
+txt+='<font color="red"><b>' + text[i-1] + '</b></font>';
+txt+=(ns4)? '</layer>' : '</span>';
+}
+document.write(txt);
+
+function move_letter(letter,left,top){
+if(ns4)letter.moveTo(left,top);
+else{
+letter.style.left=left + 'px';
+letter.style.top=top + 'px';
+}
+}
+
+function flying_text(evt){
+xx=15+((ie4||ie5)?event.clientX+document.body.scrollLeft:evt.pageX);
+yy=10+((ie4||ie5)?event.clientY+document.body.scrollTop:evt.pageY);
+}
+
+function what_left(id){
+if(ns4)return id.left;
+else return parseInt(id.style.left);
+}
+
+function what_top(id){
+if(ns4)return id.top;
+else return parseInt(id.style.top);
+}
+
+function window_width(){
+if(ie4||ie5)return document.body.clientWidth+document.body.scrollLeft;
+else return window.innerWidth+pageXOffset;
+}
+
+function move_string(){
+for(n=text.length;n>1;n=n-1){
+if(what_left(the_text[n-1])+gap*2>=window_width()){
+move_letter(the_text[n-1],0,-999);
+move_letter(the_text[n],0,-999);
+}
+else move_letter(the_text[n],what_left(the_text[n-1])+gap,what_top(the_text[n-1]));
+}
+move_letter(the_text[1],xx,yy);
+}
+
+window.onload=function(){
+for(n=1;n<=text.length;n++) the_text[n]= (ns4)?document.layers['text' + n]:
+    (ie4)?document.all['text'+n]:document.getElementById('text'+n);
+if(ns4)document.captureEvents(Event.MOUSEMOVE);
+document.onmousemove=flying_text;
+setInterval('move_string()', 25);
+}
+</script>
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "templatemo_menu",
+	orientation: 'h',
+	classname: 'ddsmoothmenu',
+
+	contentsource: "markup"
+})
+
+</script>
+
+</head>
+
+<body id="subpage">
+
+<div id="templatemo_header_wrapper">
+	<div id="site_title"><h1><a href="Главная страница.html">OOO"WATER GAMES"</a></h1></div>
+     <div id="templatemo_menu" class="ddsmoothmenu">
+        <ul>
+
+
+									 <li><a href="Главная страница.html" >Home</a></li>
+									  <li><a href="Аксессуары.html">Аксессуары</a></li>
+									 <li><a href="Фото.html" >Фото</a></li>
+										 <li><a href="О нас.html" >О нас</a></li>
+										 <li><a href="Контакты.html" class="selected">Контакты</a></li>
+										 <li><a href="В наличии.html">В наличии</a></li>
+										 <li ><a href="Работа.html" ><p style="color:red">Работа</p></a></li>
+								 </ul>
+
+
+        <br style="clear: left" />
+    </div>
+    <div class="cleaner"></div>
+</div>
+
+<div id="templatemo_main">
+
+    <h2>Связаться с нами</h2>
+        <div class="half float_l">
+
+            <div id="contact_form">
+               <form method="post" name="contact" action="#">
+
+                        <label for="author">Имя:</label> <input type="text" id="author" name="author" class="required input_field" >
+                        <div class="cleaner h10"></div>
+                        <label for="email">Email:</label> <input type="text" id="email" name="email" class="validate-email required input_field" >
+
+
+
+                        <label for="text">Сообщение:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+                        <div class="cleaner h10"></div>
+
+                        <input type="submit"  id="submit"  class="submit_btn float_l" >
+						<input type="reset"  id="reset"  class="submit_btn float_r" >
+
+            	</form>
+            </div>
+			
+
+		</div>
+	
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+        <div class="half float_r">
+        	<h4>Наши филиалы</h4>
+            <h6><strong>В России</strong></h6>
+          		Город Москва<br />
+          улица Волхонка, 12<br />
+          Индекс 119019<br /><br />
+
+			<strong>Телефон:</strong> 020-190-1080 <br />
+            <strong>Email:</strong> <a href="mailto:info@company.com">one@watergames.com</a>  <br />
+
+            <div class="cleaner h40"></div>
+            <h6><strong> В Германии</strong></h6>
+          		880-990 Praesent quam mauris,<br />
+          Fusce cursus turpis lacus 11440<br />
+                Donec mauris nunc<br /><br />
+
+			<strong>Телефон:</strong> 010-447-0250 <br />
+            <strong>Email:</strong> <a href="mailto:info@company.com">two@watergames.com</a>  <br />
+
+            <div class="cleaner h40"></div>
+            <h6><strong>В США</strong></h6>
+   		  420-630 Donec scelerisque eleifend,<br />
+                Nulla nec leo sit 11990<br />
+                Habitant Morbi<br /><br />
+
+			<strong>Телефон:</strong> 030-080-0220 <br />
+            <strong>Email:</strong> <a href="mailto:info@company.com">three@watergames.com</a>  <br />
+
+        </div>
+
+        <div class="cleaner h40"><h2>Ближайший к вам филиал<h2></div>
+
+        <iframe width="960" height="340" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35931.77571043567!2d37.571434758084614!3d55.74571617369984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x27d99245b2c90724!2z0JPQvtGB0YPQtNCw0YDRgdGC0LLQtdC90L3Ri9C5INC80YPQt9C10Lkg0LjQt9C-0LHRgNCw0LfQuNGC0LXQu9GM0L3Ri9GFINC40YHQutGD0YHRgdGC0LIg0LjQvNC10L3QuCDQkC7QoS4g0J_Rg9GI0LrQuNC90LA!5e0!3m2!1sru!2sru!4v1492872967312" ></iframe>
+
+    	<div class="cleaner"></div>
+
+    <div class="cleaner"></div>
+</div>
+
+<div id="templatemo_bottom_wrapper">
+    <div id="templatemo_bottom">
+    	<div class="col one_third">
+        	<h4><span></span>Наши партнеры</h4>
+            <div class="bottom_box">
+                <ul class="footer_list">
+                    <li><a href="https://www.renault.ru">Renault</a></li>
+                    <li><a href="http://tesla-automobile.ru">Tesla</a></li>
+                    <li><a href="http://www.bmw.ru/ru/index.html">BMW</a></li>
+                    <li><a href="http://lotuscars.webcars.ru">Lotus</a></li>
+                    <li><a href="https://www.nissan.ru">Nissan</a></li>
+                </ul>
+			</div>
+        </div>
+        <div class="col one_third">
+        	<h4><span></span>Создатели</h4>
+            <div class="bottom_box">
+                <ul class="twitter_post">
+                    <li>Alexader Cergeevig Dubov</li>
+                    <li>Mr. Jony Kuper</li>
+                </ul>
+			</div>
+        </div>
+        <div class="col one_third no_margin_right">
+        	<h4><span></span>Мы в соц сетях</h4>
+            <div class="bottom_box">
+
+                <div class="footer_social_button">
+                    <a href="https://ru-ru.facebook.com"><img src="images/facebook.png" title="facebook" alt="facebook" ></a>
+                    <a href="https://twitter.com"><img src="images/twitter.png" title="twitter" alt="twitter" ></a>
+                    <a href="https://www.youtube.com/feed/subscriptions"><img src="images/youtube.png" title="youtube" alt="youtube" ></a>
+
+                </div>
+            </div>
+        </div>
+
+    	<div class="cleaner"></div>
+    </div>
+</div>
+
+<div id="templatemo_footer_wrapper">
+    <div id="templatemo_footer">
+    	Copyright © 2019 OOO"WATER GAMES"
+    </div>
+</div>
+
+</body>
+</html>
+
+
+<?php
+  $name = $_POST["name"];
+  $page_id = $_POST["page_id"];
+  $text_comment = $_POST["text_comment"];
+  $name = htmlspecialchars($name);// Преобразуем спецсимволы в HTML-сущности
+  $text_comment = htmlspecialchars($text_comment);// Преобразуем спецсимволы в HTML-сущности
+  $mysqli = new mysqli("localhost", "root", "", "db");// Подключается к базе данных
+  $mysqli->query("INSERT INTO `comments` (`name`, `page_id`, `text_comment`) VALUES ('$name', '$page_id', '$text_comment')");// Добавляем комментарий в таблицу
+  header("Location: ".$_SERVER["HTTP_REFERER"]);// Делаем реридект обратно
+?>
+
